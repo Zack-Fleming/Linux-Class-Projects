@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Created By: Fleming, Zackery
+# Created By: Fleming, Zackery P.
 # Created On: November 2021
 #
 # This script copies files to a backup folder.
