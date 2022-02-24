@@ -1,0 +1,32 @@
+# selcome user with date
+echo welcome $USER
+echo today is 
+date
+
+# change the user prompt
+PS1='${debian_chroot:+($debian_chroot)}\e[0;36m\u\e[m\e[0;31m@\e[m\e[1;35m\h:\e[m\e[1;34m\w\e[m\e[0;32m\$\e[m'
+
+# print the last 15 logins
+echo 'last 15 logins:'
+last | head -n 15
+echo
+
+# last 15 modified files in the user's home directory
+echo 'last 15 modified files in the home dir:'
+ls -alth $HOME | head -n 15
+echo
+
+# current disk useage
+echo 'current disk useage:'
+df -h
+echo
+
+# current memory useage
+ech 'current memory useage:'
+free -h
+echo
+
+# top 3 processes my memory useage
+# the head -n 4 is to keep the column headings as well
+echo 'top three processes (by memory useage):'
+ps -0 pid,user,%mem,command ax | sort -b -k3 -r | head -n 4
