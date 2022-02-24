@@ -1,0 +1,22 @@
+# welcome the user
+echo Welcome $USER
+echo -e "Today's date is: $(date)\n"
+
+# prompt change
+PS1='${debian_chroot:+($debian_chroot)}\e[0;36m\u\e[m\e[0;31m@\e[m\e[1;35m\h:\e[m\e[1;34m\w\e[m\e[0;32m\$\e[m'
+
+# last 10 logins
+echo -e "Last 10 logins:\n$(last | head -n 15)\n"
+
+# last 10 modified files in the user's home dir
+echo -e "Last 10 modified files:\n$(ls -alth $HOME | head -n 10)\n"
+
+# current disk useage
+echo -e "Disk Useage:\n$(df -h)\n"
+
+# current memory useage
+echo -e "Memory Useage:\n$(free -h)\n"
+
+# top 3 processes by memory useage
+# the sort -n 4 keeps the headers and three records
+echo -e "Top 3 processes:\n$(ps -o pid,user,%mem,command ax | sort -b -k3 -r | head -n 4)"
